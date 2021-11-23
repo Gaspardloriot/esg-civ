@@ -2,7 +2,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, incrementByAmount } from "./redux/counter";
+import { decrement, increment, incrementByAmount } from "./redux/reducer";
+
+import { HeaderTest } from "./containers/header/header";
+
 const Button = styled.a`
   /* This renders the buttons above... Edit me! */
   display: inline-block;
@@ -23,7 +26,7 @@ const Button = styled.a`
 `;
 
 function App() {
-  const { count } = useSelector((state) => state.counter);
+  const { count } = useSelector((state) => state.fullState);
   const dispatch = useDispatch();
   return (
     <div className="App">
@@ -47,6 +50,7 @@ function App() {
         >
           Learn React
         </a>
+        <HeaderTest />
       </header>
     </div>
   );

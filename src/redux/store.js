@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit"
-import counterReducer from './counter'
+import { configureStore } from "@reduxjs/toolkit";
+import fullStateReducer from "./reducer";
 
 export default configureStore({
-    reducer: {
-        counter : counterReducer 
-    }
-})
+  reducer: {
+    fullState: fullStateReducer,
+  },
+});
