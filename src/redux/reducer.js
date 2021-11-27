@@ -10,7 +10,7 @@ const tester = (state) => {
 
 export const stateSlice = createSlice({
   name: "stateActions",
-  initialState: initialState,
+  initialState: {...initialState, component:<div>hello world</div>},
   reducers: {
     increment: (state) => {
       state.count += 1;

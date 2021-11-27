@@ -1,43 +1,33 @@
 import logo from "./logo.svg";
 import "./App.css";
-import styled from "styled-components";
+//import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, incrementByAmount } from "./redux/reducer";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { BodyTest } from "./containers/body/BodyTest";
 
 import { HeaderTest } from "./containers/header/header";
 
-const Button = styled.a`
-  /* This renders the buttons above... Edit me! */
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-
-  /* The GitHub button is a primary button
-   * edit this to target it specifically! */
-  ${`
-    background: white;
-    color: black;
-  `}
-`;
-
-function App() {
+function App({ user }) {
+  console.log(user);
   const { count } = useSelector((state) => state.fullState);
   const dispatch = useDispatch();
-  return (
+  return user ? (
     <div className="App">
       <header className="App-header">
+        <BodyTest />
         <h1> The count is: {count}</h1>
+
         <button onClick={() => dispatch(increment())}>increment</button>
         <button onClick={() => dispatch(decrement())}>decrement</button>
         <button onClick={() => dispatch(incrementByAmount(33))}>
           Increment by 33
         </button>
-        <Button>click me</Button>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -53,6 +43,8 @@ function App() {
         <HeaderTest />
       </header>
     </div>
+  ) : (
+    <Navigate to="login" />
   );
 }
 
