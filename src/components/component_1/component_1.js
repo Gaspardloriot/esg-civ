@@ -7,7 +7,7 @@ export const Component1 = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <h3> The count is: {count}</h3>
+      <h3 style={{ color: "white" }}> The count is: {count}</h3>
       <button onClick={() => dispatch(increment())}>increment</button>
       <button onClick={() => dispatch(decrement())}>decrement</button>
       <img src={logo} className="App-logo" alt="logo" />
