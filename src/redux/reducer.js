@@ -3,7 +3,7 @@ import initialState from "./initialState.json";
 
 export const stateSlice = createSlice({
   name: "stateActions",
-  initialState: { ...initialState, component: <div>hello world</div> },
+  initialState: initialState ,
   reducers: {
     increment: (state) => {
       state.count += 1;
