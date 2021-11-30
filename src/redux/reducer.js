@@ -3,7 +3,7 @@ import initialState from "./initialState.json";
 
 export const stateSlice = createSlice({
   name: "stateActions",
-  initialState: initialState ,
+  initialState: initialState,
   reducers: {
     increment: (state) => {
       state.count += 1;
@@ -12,13 +12,17 @@ export const stateSlice = createSlice({
       state.count -= 1;
     },
     switchComponent: (state, { payload }) => {
-      console.log(payload);
       state.component = payload;
+    },
+    toggleOverlay: (state) => {
+      state.Overlay.isVisible = !state.Overlay.isVisible;
+      console.log(state.Overlay.isVisible);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, switchComponent } = stateSlice.actions;
+export const { increment, decrement, switchComponent, toggleOverlay } =
+  stateSlice.actions;
 
 export default stateSlice.reducer;

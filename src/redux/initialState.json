@@ -1,4 +1,7 @@
 {
   "count": 0,
-  "component": "Component1"
+  "component": "Component1",
+  "Overlay": {
+    "isVisible": false
+  }
 }

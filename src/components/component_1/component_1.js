@@ -1,4 +1,4 @@
-import { decrement, increment } from "../../redux/reducer";
+import { decrement, increment, toggleOverlay } from "../../redux/reducer";
 import logo from "../../logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,6 +10,7 @@ export const Component1 = () => {
       <h3 style={{ color: "white" }}> The count is: {count}</h3>
       <button onClick={() => dispatch(increment())}>increment</button>
       <button onClick={() => dispatch(decrement())}>decrement</button>
+      <button onClick={() => dispatch(toggleOverlay())}>toggleOverlay</button>
       <img src={logo} className="App-logo" alt="logo" />
       <p>
         Edit <code>src/App.js</code> and save to reload.

@@ -6,7 +6,8 @@ export const Component2 = () => {
       <h3 style={{ color: "white" }}>Metabase</h3>
       <Container>
         <iframe
-          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjJ9LCJwYXJhbXMiOnt9LCJleHAiOjE2MzgyODE4NDd9.ZrwwY5Q_aBCOoUAP0ol0Beo6W-II1VnnbAg5h7IsIBY#theme=night&bordered=true&titled=true"
+          title="myFrame"
+          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjJ9LCJwYXJhbXMiOnt9LCJleHAiOjE2MzgyODYyMjh9.X6vUgPSzkKuDZnVfY5wP0yhdLVTssFrIri6cf4UTV7g#theme=night&bordered=true&titled=true"
           frameBorder="0"
           width="100%"
           height="1000px"
