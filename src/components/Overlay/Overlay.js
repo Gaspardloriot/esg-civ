@@ -10,6 +10,7 @@ export const Overlay = () => {
       <Offcanvas
         show={Overlay.isVisible}
         onHide={() => dispatch(toggleOverlay())}
+        placement="end"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>

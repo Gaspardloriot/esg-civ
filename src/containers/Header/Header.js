@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { switchComponent } from "../../redux/reducer";
-import { Container, Navbar, Button } from "react-bootstrap";
+import { switchComponent, toggleOverlay } from "../../redux/reducer";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "./leaf_logo.svg";
 
 const HeaderNav = styled(Navbar)`
@@ -12,12 +12,15 @@ const HeaderNav = styled(Navbar)`
 const NavLogo = styled.img`
   margin-right: 15px;
 `;
-const ButtonContainer = styled(Container)`
-  margin-left: 20px;
-`;
-const HeaderButton = styled(Button)`
-  margin: 2px 5px 2px 5px;
-  padding: 4px;
+const NavLink = styled(Nav.Link)`
+  color: ${(props) =>
+    props.isActive ? " #003333 !important" : "grey !important"};
+
+  border-bottom: ${(props) => (props.isActive ? "2px solid grey" : "0")};
+
+  :hover {
+    color: ${(props) =>
+      props.isActive ? "grey !important" : "#003333 !important"};
   }
 `;
 
@@ -31,10 +34,11 @@ const HeaderContainer = styled(Container)`
 
 export const Header = () => {
   const { component } = useSelector((state) => state.fullState);
+  const { Overlay } = useSelector((state) => state.fullState);
   const dispatch = useDispatch();
   return (
     <>
-      <HeaderNav sticky="top">
+      <HeaderNav sticky="top" expand={false}>
         <HeaderContainer>
           <Navbar.Brand href="#home">
             <NavLogo
@@ -47,20 +51,18 @@ export const Header = () => {
             />
             <strong>ESG Analytics</strong>
           </Navbar.Brand>
-          <ButtonContainer>
-            <HeaderButton
-              onClick={() => dispatch(switchComponent("Component1"))}
-              variant={component === "Component1" ? "dark" : "outline-dark"}
-            >
-              component1
-            </HeaderButton>
-            <HeaderButton
-              onClick={() => dispatch(switchComponent("Component2"))}
-              variant={component === "Component2" ? "dark" : "outline-dark"}
-            >
-              component2
-            </HeaderButton>
-          </ButtonContainer>
+          <NavLink
+            onClick={() => dispatch(switchComponent("Component1"))}
+            isActive={component === "Component1"}
+          >
+            Component1
+          </NavLink>
+          <NavLink
+            onClick={() => dispatch(switchComponent("Component2"))}
+            isActive={component === "Component2"}
+          >
+            Component2
+          </NavLink>
         </HeaderContainer>
       </HeaderNav>
     </>

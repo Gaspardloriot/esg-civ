@@ -16,7 +16,6 @@ export const stateSlice = createSlice({
     },
     toggleOverlay: (state) => {
       state.Overlay.isVisible = !state.Overlay.isVisible;
-      console.log(state.Overlay.isVisible);
     },
   },
 });
