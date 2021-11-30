@@ -5,22 +5,20 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "./leaf_logo.svg";
 
 const HeaderNav = styled(Navbar)`
-  background-color: #a9d7b6;
+  background-color: #c0c0c0;
   border-radius: 1px 1px 4px 4px;
-  border: 1px solid #a9a9a9;
+  border: 2px solid #006600;
 `;
 const NavLogo = styled.img`
   margin-right: 15px;
 `;
 const NavLink = styled(Nav.Link)`
   color: ${(props) =>
-    props.isActive ? " #003333 !important" : "grey !important"};
-
+    props.isActive ? "#006600 !important" : "#202020 !important"};
   border-bottom: ${(props) => (props.isActive ? "2px solid grey" : "0")};
-
   :hover {
     color: ${(props) =>
-      props.isActive ? "grey !important" : "#003333 !important"};
+      props.isActive ? "#202020 !important" : "#006600 !important"};
   }
 `;
 
@@ -49,7 +47,15 @@ export const Header = () => {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            <strong>ESG Analytics</strong>
+            <strong
+              style={{
+                color: "#202020",
+                fontStyle: "italic",
+                fontWeight: "400",
+              }}
+            >
+              ESG Analytics
+            </strong>
           </Navbar.Brand>
           <NavLink
             onClick={() => dispatch(switchComponent("Component1"))}
@@ -61,7 +67,7 @@ export const Header = () => {
             onClick={() => dispatch(switchComponent("Component2"))}
             isActive={component === "Component2"}
           >
-            Component2
+            Dashboard
           </NavLink>
         </HeaderContainer>
       </HeaderNav>
