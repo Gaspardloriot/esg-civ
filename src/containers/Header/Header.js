@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { switchComponent, toggleOverlay } from "../../redux/reducer";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import logo from "./leaf_logo.svg";
+import logo from "./icons8-nordvpn.svg";
 
 const HeaderNav = styled(Navbar)`
-  background-color: #255929;
+  background-color: rgb(30, 71, 33);
   border-radius: 1px 1px 4px 4px;
   border: 1px solid #a9a9a9;
 `;
@@ -38,18 +38,25 @@ export const Header = () => {
     <>
       <HeaderNav sticky="top" expand={false}>
         <HeaderContainer>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand
+            href="#home"
+            style={{
+              backgroundColor: "#fffdd0",
+              borderRadius: "3px",
+              padding: "6px",
+            }}
+          >
             <NavLogo
               title="test-metabase"
               src={logo}
-              width="50"
+              width="30"
               height="auto"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
             <strong
               style={{
-                color: "#E0E0E0",
+                color: "#787878",
                 fontStyle: "italic",
                 fontWeight: "400",
               }}
