@@ -11,6 +11,12 @@ export const Overlay = () => {
         show={Overlay.isVisible}
         onHide={() => dispatch(toggleOverlay())}
         placement="end"
+        style={{
+          borderRadius: "4px 0px 0px 4px",
+          border: "3px solid #0a4f10",
+          backgroundColor: "#E0E0E0",
+          color: "#0a4f10",
+        }}
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>

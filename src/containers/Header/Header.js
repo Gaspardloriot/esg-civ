@@ -5,20 +5,20 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "./leaf_logo.svg";
 
 const HeaderNav = styled(Navbar)`
-  background-color: #c0c0c0;
+  background-color: #255929;
   border-radius: 1px 1px 4px 4px;
-  border: 2px solid #006600;
+  border: 1px solid #a9a9a9;
 `;
 const NavLogo = styled.img`
   margin-right: 15px;
 `;
 const NavLink = styled(Nav.Link)`
   color: ${(props) =>
-    props.isActive ? "#006600 !important" : "#202020 !important"};
-  border-bottom: ${(props) => (props.isActive ? "2px solid grey" : "0")};
+    props.isActive ? "#787878 !important" : "#E0E0E0 !important"};
+  border-bottom: ${(props) => (props.isActive ? "2px solid #BEBEBE" : "0")};
   :hover {
     color: ${(props) =>
-      props.isActive ? "#202020 !important" : "#006600 !important"};
+      props.isActive ? "#E0E0E0 !important" : "#787878 !important"};
   }
 `;
 
@@ -49,7 +49,7 @@ export const Header = () => {
             />
             <strong
               style={{
-                color: "#202020",
+                color: "#E0E0E0",
                 fontStyle: "italic",
                 fontWeight: "400",
               }}

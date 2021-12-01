@@ -7,7 +7,7 @@ export const Component2 = () => {
       <Container>
         <iframe
           title="myFrame"
-          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjJ9LCJwYXJhbXMiOnt9LCJleHAiOjE2MzgzMTYzNjV9.tWNxmAr7UMAON6143rXnZfhywcMYtCdde1cJ815JDNk#theme=night&bordered=true&titled=true"
+          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjJ9LCJwYXJhbXMiOnt9LCJleHAiOjE2MzgzNjkzNDN9.aD6sUoS0-UvJ-et4ZvoyJChmRBez80_OKBW3Ld3vB3w#theme=night&bordered=true&titled=true"
           frameBorder="0"
           width="100%"
           height="1000px"
