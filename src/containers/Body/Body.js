@@ -5,9 +5,21 @@ import { Overlay } from "../../components/Overlay/Overlay";
 
 export const Body = () => {
   const { component } = useSelector((state) => state.fullState);
+  let activeComponent;
+  switch (component) {
+    case "Component1":
+      activeComponent = <Component1 />;
+      break;
+    case "Component2":
+      activeComponent = <Component2 />;
+      break;
+    default:
+      activeComponent = <Component1 />;
+  }
+
   return (
     <div>
-      {component === "Component1" ? <Component1 /> : <Component2 />}
+      {activeComponent}
       <Overlay />
     </div>
   );

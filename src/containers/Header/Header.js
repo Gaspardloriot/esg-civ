@@ -1,18 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { switchComponent, toggleOverlay } from "../../redux/reducer";
+import { switchComponent } from "../../redux/reducer";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "./icons8-nordvpn.svg";
 
 const HeaderNav = styled(Navbar)`
-  background-color: rgb(30, 71, 33);
+  background-color: #071224;
   border-radius: 1px 1px 4px 4px;
-  border: 1px solid #a9a9a9;
+  border: 2px solid #509ee3;
+  margin-bottom: 30px;
+`;
+
+const NavBrand = styled(Navbar.Brand)`
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  padding: 6px;
 `;
 const NavLogo = styled.img`
-  margin-right: 15px;
+  margin-right: 10px;
 `;
 const NavLink = styled(Nav.Link)`
+  margin-left: 30px;
   color: ${(props) =>
     props.isActive ? "#787878 !important" : "#E0E0E0 !important"};
   border-bottom: ${(props) => (props.isActive ? "2px solid #BEBEBE" : "0")};
@@ -22,30 +30,25 @@ const NavLink = styled(Nav.Link)`
   }
 `;
 
+const CompanyTitle = styled.span`
+  color: black;
+  font-style: italic;
+  font-weight: 100;
+`;
+
 const HeaderContainer = styled(Container)`
   margin-left: 10px;
   width: auto;
 `;
 
-//Styled components with props example code below !
-//color: ${(props) => props.inputColor || "palevioletred"};
-
 export const Header = () => {
   const { component } = useSelector((state) => state.fullState);
-  const { Overlay } = useSelector((state) => state.fullState);
   const dispatch = useDispatch();
   return (
     <>
       <HeaderNav sticky="top" expand={false}>
         <HeaderContainer>
-          <Navbar.Brand
-            href="#home"
-            style={{
-              backgroundColor: "#fffdd0",
-              borderRadius: "3px",
-              padding: "6px",
-            }}
-          >
+          <NavBrand href="#home">
             <NavLogo
               title="test-metabase"
               src={logo}
@@ -54,16 +57,8 @@ export const Header = () => {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            <strong
-              style={{
-                color: "#787878",
-                fontStyle: "italic",
-                fontWeight: "400",
-              }}
-            >
-              ESG Analytics
-            </strong>
-          </Navbar.Brand>
+            <CompanyTitle>ESG Analytics</CompanyTitle>
+          </NavBrand>
           <NavLink
             onClick={() => dispatch(switchComponent("Component1"))}
             isActive={component === "Component1"}
