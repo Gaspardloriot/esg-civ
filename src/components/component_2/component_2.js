@@ -1,10 +1,11 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import { mainColors as styles } from "../../globalStyles";
 
 const MetaBaseDashboard = styled.iframe`
   border-radius: 5px;
   padding: 2px;
-  background-color: #a9a9a9;
+  background-color: ${styles.main.dashboardBorder};
 `;
 
 const DashboardContainer = styled(Container)`
@@ -17,7 +18,7 @@ export const Component2 = () => {
       <DashboardContainer fluid>
         <MetaBaseDashboard
           title="myFrame"
-          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjJ9LCJwYXJhbXMiOnt9LCJleHAiOjE2Mzg0ODc3MTB9.mwxhnYnj3kOJFdLxsIyR4KZDvUq3NX62QXg2J16Ep-I#theme=night&bordered=true&titled=true"
+          src="https://esg-test.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjF9LCJwYXJhbXMiOnt9LCJleHAiOjE2Mzg1NTg2Njl9.5TxdgbIgE6D8px7ZJySEzGvcf5qvPpK23sljQZDTYMk#theme=night&bordered=true&titled=true"
           width="100%"
           height="2000px"
         ></MetaBaseDashboard>

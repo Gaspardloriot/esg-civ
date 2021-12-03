@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import { switchComponent } from "../../redux/reducer";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { mainColors as styles } from "../../globalStyles";
 import logo from "./icons8-nordvpn.svg";
 
 const HeaderNav = styled(Navbar)`
-  background-color: #071224;
+  background-color: ${styles.header.headerBackground};
   border-radius: 1px 1px 4px 4px;
-  border: 2px solid #509ee3;
+  border: 2px solid ${styles.metabase.metabaseBlue};
   margin-bottom: 30px;
 `;
 
@@ -22,11 +23,16 @@ const NavLogo = styled.img`
 const NavLink = styled(Nav.Link)`
   margin-left: 30px;
   color: ${(props) =>
-    props.isActive ? "#787878 !important" : "#E0E0E0 !important"};
-  border-bottom: ${(props) => (props.isActive ? "2px solid #BEBEBE" : "0")};
+    props.isActive
+      ? `${styles.header.navLinkActive} !important`
+      : `${styles.header.navLinkInactive} !important`};
+  border-bottom: ${(props) =>
+    props.isActive ? `2px solid ${styles.header.navLinkBorder}` : "0"};
   :hover {
     color: ${(props) =>
-      props.isActive ? "#E0E0E0 !important" : "#787878 !important"};
+      props.isActive
+        ? `${styles.header.navLinkInactive} !important`
+        : `${styles.header.navLinkActive} !important`};
   }
 `;
 
