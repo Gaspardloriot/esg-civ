@@ -1,38 +1,77 @@
-// Import FirebaseAuth and firebase.
-import React from "react";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import { useSelector } from "react-redux";
-const config = {
-  apiKey: "AIzaSyDDgbmB4mZVczTI1VXynPV3QgXsk5EemjI",
-  authDomain: "resilience-7ebf4.firebaseapp.com",
-  // ...
-};
-const app = firebase.initializeApp(config);
-const auth = app.auth();
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { changeAuth } from "../../redux/reducer";
+import { auth } from "../../security/firebase";
 
-const uiConfig = {
-  // Popup signin flow rather than redirect flow.
-  signInFlow: "popup",
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: "/signedIn",
-  // We will display Google and Facebook as auth providers.
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-};
+export const Login = () => {
+  const dispatch = useDispatch();
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const currentUser = auth.currentUser;
 
-export function Login(props) {
-  const { count } = useSelector((state) => state.fullState);
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      dispatch(
+        changeAuth(
+          currentUser
+            ? {
+                email: currentUser.email,
+                uid: currentUser.uid,
+              }
+            : currentUser
+        )
+      );
+    });
+  }, [dispatch]);
+
+  if (currentUser) {
+    return <Navigate to="/" />;
+  }
+
+  const login = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      //const idToken = await currentUser.getIdToken(/* forceRefresh */ true);
+      //console.log(idToken);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
   return (
     <div>
-      <h1>{`My App has the count ${props.test_props}`}</h1>
-      <p style={{ color: "red" }}>Please sign-in:</p>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      <div>
+        <h3> Login </h3>
+        <input
+          placeholder="Email..."
+          onChange={(event) => {
+            setLoginEmail(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Password..."
+          onChange={(event) => {
+            setLoginPassword(event.target.value);
+          }}
+        />
+
+        <button onClick={login}> Login</button>
+      </div>
+
+      <h4> User Logged In: </h4>
+      {currentUser?.email}
+
+      <button onClick={logout}> Sign Out </button>
     </div>
   );
-}
+};
