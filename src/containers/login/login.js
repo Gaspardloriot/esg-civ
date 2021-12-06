@@ -15,20 +15,18 @@ export const Login = () => {
   const [loginPassword, setLoginPassword] = useState("");
   const currentUser = auth.currentUser;
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      dispatch(
-        changeAuth(
-          currentUser
-            ? {
-                email: currentUser.email,
-                uid: currentUser.uid,
-              }
-            : currentUser
-        )
-      );
-    });
-  }, [dispatch]);
+  onAuthStateChanged(auth, (currentUser) => {
+    dispatch(
+      changeAuth(
+        currentUser
+          ? {
+              email: currentUser.email,
+              uid: currentUser.uid,
+            }
+          : currentUser
+      )
+    );
+  });
 
   if (currentUser) {
     return <Navigate to="/" />;
