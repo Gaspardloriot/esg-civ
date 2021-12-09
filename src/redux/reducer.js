@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import initialState from "./initialState.json";
 import { changeAuthState } from "../containers/login/changeAuthState";
+import { idTokenFunc } from "../security/idToken";
 
 export const stateSlice = createSlice({
   name: "stateActions",
@@ -21,6 +22,9 @@ export const stateSlice = createSlice({
     changeAuth: (state, { payload }) => {
       changeAuthState(state, payload);
     },
+    setIdToken: (state, { payload }) => {
+      idTokenFunc(state, payload);
+    },
   },
 });
 
@@ -31,6 +35,7 @@ export const {
   switchComponent,
   toggleOverlay,
   changeAuth,
+  setIdToken,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

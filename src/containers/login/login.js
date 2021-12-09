@@ -18,6 +18,33 @@ const Page = styled(Container)`
   min-height: 100vh;
   color: white;
 `;
+const BrandContainer = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  border: 1px solid black;
+`;
+
+const LogoContainer = styled.div`
+  justify-content: center;
+  display: flex;
+`;
+
+const Logo = styled.img`
+  background-color: white;
+  border-radius: 4px;
+`;
+
+const BrandName = styled.p`
+  text-align: center;
+  font-size: 25px;
+  font-weight: 100;
+`;
 
 const MainContainer = styled.div`
   background-color: ${styles.header.headerBackground};
@@ -25,6 +52,11 @@ const MainContainer = styled.div`
   padding: 15px;
   border-radius: 4px;
   width: 30%;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const LogInput = styled.input`
@@ -35,6 +67,7 @@ const LogInput = styled.input`
   border: 1px solid transparent;
   border-bottom: 2px solid white;
   color: white;
+
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
@@ -51,6 +84,11 @@ const LogInput = styled.input`
     /* Microsoft Edge */
     color: red;
   }
+`;
+
+const LoginButton = styled(Button)`
+  margin: 10px 100px;
+  margin-top: 10px;
 `;
 
 export const Login = () => {
@@ -82,8 +120,6 @@ export const Login = () => {
     try {
       setSpinnerDisplay("");
       await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-      //const idToken = await currentUser.getIdToken(/* forceRefresh */ true);
-      //console.log(idToken);
     } catch (error) {
       setSpinnerDisplay("none");
       setAlert({
@@ -95,36 +131,22 @@ export const Login = () => {
 
   return (
     <Page fluid>
-      <div
-        style={{
-          width: "30%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          marginBottom: "15px",
-          backgroundColor: "white",
-          borderRadius: "4px",
-          color: "black",
-          border: "1px solid black",
-        }}
-      >
-        <div style={{ justifyContent: "center", display: "flex" }}>
-          <img
+      <BrandContainer>
+        <LogoContainer>
+          <Logo
+            alt="company logo login page"
             src={logo}
             width="100"
             height="auto"
-            style={{ backgroundColor: "white", borderRadius: "4px" }}
           />
-        </div>
-        <p style={{ textAlign: "center", fontSize: "25px", fontWeight: "100" }}>
-          ESG Analytics
-        </p>
-      </div>
+        </LogoContainer>
+        <BrandName>ESG Analytics</BrandName>
+      </BrandContainer>
       <MainContainer>
         <Alert key={1} variant="danger" show={alert.show}>
           {alert.content}
         </Alert>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <InputContainer>
           <LogInput
             placeholder="Email..."
             onChange={(event) => {
@@ -138,11 +160,7 @@ export const Login = () => {
               setLoginPassword(event.target.value);
             }}
           />
-          <Button
-            onClick={login}
-            variant="light"
-            style={{ margin: "10px 100px", marginTop: "10px" }}
-          >
+          <LoginButton onClick={login} variant="light">
             <Spinner
               as="span"
               animation="border"
@@ -152,8 +170,8 @@ export const Login = () => {
               style={{ display: spinnerDisplay }}
             />{" "}
             Login
-          </Button>
-        </div>
+          </LoginButton>
+        </InputContainer>
       </MainContainer>
     </Page>
   );

@@ -5,7 +5,7 @@ import { Login } from "./containers/login/login";
 
 export const GateKeeper = () => {
   const { context } = useSelector((state) => state.fullState);
-
+  
   return (
     <Router>
       <Routes>
@@ -15,3 +15,5 @@ export const GateKeeper = () => {
     </Router>
   );
 };
+
+

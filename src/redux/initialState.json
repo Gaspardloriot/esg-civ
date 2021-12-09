@@ -1,5 +1,6 @@
 {
   "context": {
+    "idToken": null,
     "currentUser": null
   },
   "count": 0,
