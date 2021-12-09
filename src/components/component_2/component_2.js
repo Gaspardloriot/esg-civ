@@ -1,5 +1,6 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { mainColors as styles } from "../../globalStyles";
 
 const MetaBaseDashboard = styled.iframe`
@@ -13,6 +14,7 @@ const DashboardContainer = styled(Container)`
 `;
 
 export const Component2 = () => {
+  const { context } = useSelector((state) => state.fullState);
   /*function intervalFunc() {
     console.log("Cant stop me now!");
   }*/
@@ -23,7 +25,7 @@ export const Component2 = () => {
       <DashboardContainer fluid>
         <MetaBaseDashboard
           title="myFrame"
-          src="https://esg-analytics.herokuapp.com/embed/dashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6eyJkYXNoYm9hcmQiOjF9LCJwYXJhbXMiOnt9LCJleHAiOjE2MzkwMTM1NDd9.tVvDjER5huv8YD-YNcYL4eH2dfMFOdVo2mhzvEv0ibc#theme=night&bordered=true&titled=true"
+          src={context.metabaseUrls}
           width="100%"
           height="2000px"
         ></MetaBaseDashboard>

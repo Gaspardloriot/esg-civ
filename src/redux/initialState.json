@@ -1,7 +1,8 @@
 {
   "context": {
     "idToken": null,
-    "currentUser": null
+    "currentUser": null,
+    "metabaseUrls": null
   },
   "count": 0,
   "component": "Component1",
