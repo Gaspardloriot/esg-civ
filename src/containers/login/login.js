@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Navigate } from "react-router";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
@@ -6,6 +5,7 @@ import { changeAuth } from "../../redux/reducer";
 import { auth } from "../../security/firebase";
 import { Container, Alert, Button, Spinner } from "react-bootstrap";
 import styled from "styled-components";
+import { useState } from "react";
 import { mainColors as styles } from "../../globalStyles";
 import logo from "../../containers/Header/icons8-nordvpn.svg";
 
