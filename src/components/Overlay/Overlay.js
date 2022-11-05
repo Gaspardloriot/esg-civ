@@ -21,10 +21,17 @@ export const Overlay = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
+        <form>
+          <h1>React File Upload</h1>
+          <input type="file"/>
+          <button type="submit">Upload</button>
+        </form>
         <Offcanvas.Body>
           Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc.
         </Offcanvas.Body>
+        <div style={{ height: "100%", backgroundColor: "red", margin: "7px", borderRadius: "4px" }}><p>test</p></div>
+        
       </Offcanvas>
     </>
   );

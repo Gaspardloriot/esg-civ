@@ -1,4 +1,9 @@
 {
+  "context": {
+    "idToken": null,
+    "currentUser": null,
+    "metabaseUrls": null
+  },
   "count": 0,
   "component": "Component1",
   "Overlay": {

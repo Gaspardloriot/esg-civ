@@ -1,15 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import App from "./App";
-
-const currentUser = true;
+import { Login } from "./containers/login/login";
 
 export const GateKeeper = () => {
+  const { context } = useSelector((state) => state.fullState);
+  
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App user={currentUser} />} />
-        <Route path="/login" element={<div>no current user</div>} />
+        <Route path="/" element={<App user={context.currentUser} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
 };
+
+

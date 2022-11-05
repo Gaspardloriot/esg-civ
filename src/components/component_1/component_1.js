@@ -2,6 +2,12 @@ import { Container } from "react-bootstrap";
 import { decrement, increment, toggleOverlay } from "../../redux/reducer";
 import logo from "../../logo.svg";
 import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../security/firebase";
+import { signOut } from "firebase/auth";
+
+const logout = async () => {
+  await signOut(auth);
+};
 
 export const Component1 = () => {
   const { count } = useSelector((state) => state.fullState);
@@ -13,6 +19,7 @@ export const Component1 = () => {
         <Container>
           <button onClick={() => dispatch(increment())}>increment</button>
           <button onClick={() => dispatch(decrement())}>decrement</button>
+          <button onClick={() => logout()}>logout</button>
           <button onClick={() => dispatch(toggleOverlay())}>
             toggleOverlay
           </button>
