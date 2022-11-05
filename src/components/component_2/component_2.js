@@ -39,7 +39,6 @@ export const Component2 = () => {
   return (
     <>
       <DashboardContainer fluid>
-        <Loader />
         <MetaBaseDashboard
           title="myFrame"
           src={dashboardUrl?.iframeUrl}
